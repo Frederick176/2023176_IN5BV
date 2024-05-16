@@ -1,0 +1,29 @@
+.menu-bar{
+    -fx-background-color:  #7BA8A9;
+    -fx-opacity: 0.5;
+    -fx-border-width: 2.0;
+    
+}
+
+.button1 {
+    -fx-background-color:  transparent;
+    
+}
+.button2{
+    -fx-background-color: #F1F1E1;  
+    -fx-border-color: black;
+    -fx-background-radius:  10; 
+    -fx-border-radius: 10;
+    
+}
+
+.button3:hover{
+    -fx-background-color:  #A6A6A6;
+    -fx-front-size: 22px;
+    -fx-effect: dropshadow (three-pass-box, blak, 20,0,0,0);
+}
+
+.button4:hover{
+    -fx-front-size: 22px;
+}
+
