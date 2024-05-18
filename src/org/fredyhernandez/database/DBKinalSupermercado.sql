@@ -39,13 +39,29 @@ create table CargoEmpleados(
     nombreCargo varchar (50),
     descripcionCargo varchar (90),
     primary key PK_codigoCargoEmpleado (codigoCargoEmpleado)
-
 );
 
 create table TipoProducto(
 	codigoTipoProducto int not null,
     descripcion varchar (90),
     primary key PK_codigoTipoProducto (codigoTipoProducto)
+    
+);
+
+create table Productos(
+	codigoProducto varchar (15),
+    descripcionProducto varchar (100),
+    precioUnitario decimal (10,2),
+    precioDocena decimal (10,2),
+    precioMayor decimal (10,2),
+    existencia int not null,
+    codigoTipoProducto int not null,
+    codigoProveedor int not null,
+    primary key PK_codigoProducto (codigoProducto),
+    constraint FK_Productos_TipoProducto foreign key Productos(codigoTipoProducto)
+		references TipoProducto (codigoTipoProducto),
+	constraint FK_Productos_Proveedores foreign key Productos(codigoProveedor)
+		references Proveedores (codigoProveedor)
 );
 
 -- ---------------------- Procedimientos Almacenados ----------------------
@@ -478,6 +494,26 @@ Delimiter $$
         
 Delimiter $$
 call sp_EditarTipoproducto(17, 'Un collar para decoracion de hogar');
+
+
+-- ------------------- Prodcutos --------------------
+-- ---- Agregar Prodcutos ----  
+Delimiter $$
+	create procedure sp_AgregarProductos(in codigoProducto varchar(15), in descripcionProducto varchar(100), in precioUnitario decimal(10,2), 
+    in precioDocena decimal(10,2), in precioMayor decimal(10,2), in existencia int, in codigoTipoProducto int, in codigoProveedor int)
+		begin
+			insert into Productos (codigoProducto, descripcionProducto, precioUnitario, precioDocena, precioMayor, existencia,
+									codigoTipoProducto, codigoProveedor)
+				values (codigoProducto, descripcionProducto, precioUnitario, precioDocena, precioMayor, existencia, codigoTipoProducto,
+						codigoProveedor);	
+                        
+		End $$
+        
+Delimiter ;
+call sp_AgregarProductos('10', 'Estuche de metal', 100.20, 15.00, 125.50, 200, 15, 10);
+call sp_AgregarProductos('11', 'Carros Automaticos', 130.00, 10.00, 150.40, 500, 16, 11);
+call sp_AgregarProductos('12', '15 piezas armables', 120.10, 65.00, 115.00, 600, 17, 12);
+call sp_AgregarProductos('13', '5 Juegos incluidos', 1000.45, 1500.00, 500.00, 2000, 18, 13);	
 
 
 
