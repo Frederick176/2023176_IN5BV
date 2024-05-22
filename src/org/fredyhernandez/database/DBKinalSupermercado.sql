@@ -134,8 +134,8 @@ Delimiter $$
 		End $$
         
 Delimiter ;
-call sp_EliminarClientes(2);
-call sp_ListarClientes();
+/*call sp_EliminarClientes(2);
+call sp_ListarClientes();*/
 
 
 -- ---- Editar Clientes ----
@@ -231,8 +231,8 @@ Delimiter $$
 		End $$
         
 Delimiter ;
-call sp_EliminarProveedores(13);
-call sp_ListarProveedores();
+/*call sp_EliminarProveedores(13);
+call sp_ListarProveedores();*/
 
 
 -- ---- Editar Proveedores ----
@@ -318,8 +318,8 @@ Delimiter $$
 		End $$
         
 Delimiter ;
-call sp_EliminarCompras(4);
-call sp_ListarCompras();
+/*call sp_EliminarCompras(4);
+call sp_ListarCompras();*/
 
 
 -- ---- Editar Compras -----
@@ -398,8 +398,8 @@ Delimiter $$
 		End $$
         
 Delimiter ;
-call sp_EliminarCargoEmpleados(9);
-call sp_ListarCargoEmpleados();
+/*call sp_EliminarCargoEmpleados(9);
+call sp_ListarCargoEmpleados();*/
 
 
 -- ---- Editar CargoEmpleados -----
@@ -477,8 +477,8 @@ Delimiter $$
 		End $$
         
 Delimiter ;
-call sp_EliminarTipoProducto(18);
-call sp_ListarTipoProducto();
+/*call sp_EliminarTipoProducto(18);
+call sp_ListarTipoProducto();*/
 
 
 -- ---- Editar TipoProducto -----
@@ -499,22 +499,97 @@ call sp_EditarTipoproducto(17, 'Un collar para decoracion de hogar');
 -- ------------------- Prodcutos --------------------
 -- ---- Agregar Prodcutos ----  
 Delimiter $$
-	create procedure sp_AgregarProductos(in codigoProducto varchar(15), in descripcionProducto varchar(100), in precioUnitario decimal(10,2), 
+	create procedure sp_AgregarProductos (in codigoProducto varchar(15), in descripcionProducto varchar(100), in precioUnitario decimal(10,2), 
     in precioDocena decimal(10,2), in precioMayor decimal(10,2), in existencia int, in codigoTipoProducto int, in codigoProveedor int)
-		begin
-			insert into Productos (codigoProducto, descripcionProducto, precioUnitario, precioDocena, precioMayor, existencia,
-									codigoTipoProducto, codigoProveedor)
-				values (codigoProducto, descripcionProducto, precioUnitario, precioDocena, precioMayor, existencia, codigoTipoProducto,
-						codigoProveedor);	
+		Begin
+			insert into Productos(codigoProducto, descripcionProducto, precioUnitario, precioDocena, precioMayor, existencia, 
+            codigoTipoProducto, codigoProveedor) 
+				values(codigoProducto, descripcionProducto, precioUnitario, precioDocena, precioMayor, existencia, codigoTipoProducto,
+						codigoProveedor);
                         
 		End $$
         
 Delimiter ;
-call sp_AgregarProductos('10', 'Estuche de metal', 100.20, 15.00, 125.50, 200, 15, 10);
-call sp_AgregarProductos('11', 'Carros Automaticos', 130.00, 10.00, 150.40, 500, 16, 11);
-call sp_AgregarProductos('12', '15 piezas armables', 120.10, 65.00, 115.00, 600, 17, 12);
-call sp_AgregarProductos('13', '5 Juegos incluidos', 1000.45, 1500.00, 500.00, 2000, 18, 13);	
+call sp_AgregarProductos('45', 'Estuche de metal', 100.20, 15.00, 125.50, 200, 15, 10);
+call sp_AgregarProductos('32', 'Carros Automaticos', 130.00, 10.00, 150.40, 500, 16, 11);
+call sp_AgregarProductos('21', '15 piezas armables', 120.10, 65.00, 115.00, 600, 17, 12);
+call sp_AgregarProductos('13', '5 Juegos incluidos', 100.45, 25.00, 500.00, 20, 18, 13);
+
+-- ---- Listar Prodcutos ----
+Delimiter $$
+	create procedure sp_ListarProductos()
+		begin
+			select
+            P.codigoProducto, 
+            P.descripcionProducto,
+            P.precioUnitario,
+            P.precioDocena ,
+            P.precioMayor,
+			P.existencia, 
+            P.codigoTipoProducto,
+            P.codigoProveedor
+            from Productos P;
+            
+		End $$
+        
+Delimiter ;
+call sp_ListarProductos();
+
+-- ---- Buscar Prodcutos ----
+Delimiter $$
+	create procedure sp_BuscarProductos(in codigoP int)
+		begin
+			select
+            P.codigoProducto, 
+            P.descripcionProducto,
+            P.precioUnitario,
+            P.precioDocena ,
+            P.precioMayor,
+			P.existencia, 
+            P.codigoTipoProducto,
+            P.codigoProveedor
+            from Productos P
+            where codigoProducto = codigoP;
+            
+		End $$
+        
+Delimiter ;
+call sp_BuscarProductos(21);
+
+-- ---- Eliminar Prodcutos ----
+Delimiter $$
+	create procedure sp_EliminarProductos(in codigoP varchar(15))
+		begin
+			Delete from Productos
+				where codigoProducto = codigoP;
+                
+		End $$
+        
+Delimiter ;
+/*call sp_EliminarProductos(45);
+call sp_ListarProductos();*/
+
+-- ---- Editar Prodcutos ----
+Delimiter $$
+	create procedure sp_EditarProductos(in codigoP varchar(15), in descripcionP varchar(100), in precioUP decimal(10,2), 
+    in precioDP decimal(10,2), in precioMP decimal(10,2), in existencia int, in codigoTipoProducto int, in codigoProveedor int)
+		begin 
+			Update Productos P
+				set
+                P.descripcionProducto = descripcionP,
+				P.precioUnitario = precioUP,
+				P.precioDocena =  precioDP,
+				P.precioMayor = precioMP,
+				P.existencia = existencia,
+				p.codigoTipoProducto = codigoTipoProducto,
+				p.codigoProveedor = codigoProveedor 
+                where codigoProducto = codigoP;
+                
+		End $$
+        
+Delimiter ;
+call sp_EditarProductos(32, 'Carros incluidos', 100.10, 25, 1010.50, 25, 16, 11);
 
 
 
-set global time_zone = '-6:00'
+set global time_zone = '-6:00'	
