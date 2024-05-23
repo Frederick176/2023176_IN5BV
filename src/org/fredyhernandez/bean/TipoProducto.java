@@ -32,6 +32,6 @@ public class TipoProducto {
 
     @Override
     public String toString() {
-        return getCodigoTipoProducto() + " │ ";
+        return getCodigoTipoProducto() + " │ " ;
     }
 }
