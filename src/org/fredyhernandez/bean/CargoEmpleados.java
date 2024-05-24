@@ -41,5 +41,9 @@ public class CargoEmpleados {
         this.descripcionCargo = descripcionCargo;
     }
     
-    
+    @Override
+    public String toString() {
+         return  "│" + getCodigoCargoEmpleado();
+         
+    }
 }

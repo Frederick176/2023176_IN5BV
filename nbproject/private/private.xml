@@ -5,7 +5,7 @@
             <url>src/org/fredyhernandez/controller/MenuProductosController.java</url>
             <bookmark id="1">
                 <name/>
-                <line>259</line>
+                <line>416</line>
                 <key/>
             </bookmark>
         </file>
@@ -13,8 +13,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/sandr/OneDrive/Escritorio/Repositorio%20Casa/2023176_IN5BV/src/org/fredyhernandez/controller/MenuClientesController.java</file>
+            <file>file:/C:/Users/sandr/OneDrive/Escritorio/Repositorio%20Casa/2023176_IN5BV/src/org/fredyhernandez/controller/MenuPrincipalController.java</file>
             <file>file:/C:/Users/sandr/OneDrive/Escritorio/Repositorio%20Casa/2023176_IN5BV/src/org/fredyhernandez/controller/MenuProductosController.java</file>
-            <file>file:/C:/Users/sandr/OneDrive/Escritorio/Repositorio%20Casa/2023176_IN5BV/src/org/fredyhernandez/controller/MenuTipoProductoController.java</file>
+            <file>file:/C:/Users/sandr/OneDrive/Escritorio/Repositorio%20Casa/2023176_IN5BV/src/org/fredyhernandez/controller/MenuEmpleadosController.java</file>
             <file>file:/C:/Users/sandr/OneDrive/Escritorio/Repositorio%20Casa/2023176_IN5BV/src/org/fredyhernandez/controller/MenuProveedoresController.java</file>
         </group>
     </open-files>

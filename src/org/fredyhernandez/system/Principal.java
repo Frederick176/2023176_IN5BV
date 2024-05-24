@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import org.fredyhernandez.controller.MenuCargoEmpleadosController;
 import org.fredyhernandez.controller.MenuClientesController;
 import org.fredyhernandez.controller.MenuComprasController;
+import org.fredyhernandez.controller.MenuEmpleadosController;
 import org.fredyhernandez.controller.MenuPrincipalController;
 import org.fredyhernandez.controller.MenuProductosController;
 import org.fredyhernandez.controller.MenuProveedoresController;
@@ -64,7 +65,7 @@ public class Principal extends Application {
     
     public void menuPrincipalView(){
         try{
-            MenuPrincipalController menuPrincipalView = (MenuPrincipalController) cambiarEscena("MenuPrincipalView.fxml", 940, 537);
+            MenuPrincipalController menuPrincipalView = (MenuPrincipalController) cambiarEscena("MenuPrincipalView.fxml", 940, 530);
             menuPrincipalView.setEscenarioPrincipal(this); 
         }catch(Exception e){
             e.printStackTrace();
@@ -133,10 +134,20 @@ public class Principal extends Application {
     
     public void menuProductosView(){
         try{
-            MenuProductosController menuProductosView = (MenuProductosController) cambiarEscena ("MenuProductosView.fxml", 1283, 733);
+            MenuProductosController menuProductosView = (MenuProductosController) cambiarEscena ("MenuProductosView.fxml", 1319, 740);
             menuProductosView.setEscenarioPrincipal(this);
         }catch (Exception e){
             e.printStackTrace();
+        }
+    }
+    
+    public void menuEmpleadosView(){
+        try{
+            MenuEmpleadosController menuEmpleadosView = (MenuEmpleadosController) cambiarEscena ("MenuEmpleadosView.fxml", 1251, 704);
+            menuEmpleadosView.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            e.printStackTrace();
+            
         }
     }
     
@@ -144,5 +155,4 @@ public class Principal extends Application {
         launch(args);
         
     }
-    
 }

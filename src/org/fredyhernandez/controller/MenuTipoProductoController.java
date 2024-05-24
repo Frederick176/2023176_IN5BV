@@ -170,8 +170,8 @@ public class MenuTipoProductoController implements Initializable {
                     activarControles();
                     btnEditar.setText("Editar");
                     btnReporte.setText("Cancelar");
-                    btnAgregar.setDisable(true);
-                    btnEliminar.setDisable(true);
+                    btnAgregar.setDisable(false);
+                    btnEliminar.setDisable(false);
                     imagEditar.setImage(new Image("/org/fredyhernandez/images/Editar.png"));
                     imagReporte.setImage(new Image("/org/fredyhernandez/images/Cancelar.png"));
                     txtcodigoTP.setEditable(false);
@@ -185,7 +185,7 @@ public class MenuTipoProductoController implements Initializable {
             case ACTUALIZAR:
                 desactivarControles();
                 actualizar();
-                btnEditar.setText("Actualizar");
+                btnEditar.setText("Editar");
                 btnReporte.setText("Reportes");
                 btnAgregar.setDisable(false);
                 btnEliminar.setDisable(false);
