@@ -96,9 +96,9 @@ create table Facturas(
     codigoCliente int not null,
     codigoEmpleado int not null,
     primary key PK_numeroFactura (numeroFactura),
-    constraint FK_Factura_Clientes foreign key Factura(codigoCliente)
+    constraint FK_Facturas_Clientes foreign key Facturas(codigoCliente)
 		references Clientes(codigoCliente),
-	constraint FK_Factura_Empleados foreign key Factura(codigoEmpleado)
+	constraint FK_Facturas_Empleados foreign key Facturas(codigoEmpleado)
 		references Empleados(codigoEmpleado)
 );
 
@@ -392,6 +392,7 @@ Delimiter ;
 call sp_AgregarCargoEmpleados(1, 'Coordinador de Personal', 'Supervisa las actividades relacionadas');
 call sp_AgregarCargoEmpleados(9, 'Asistente de recursos humanos', 'Brindar apoyo administrativo');
 call sp_AgregarCargoEmpleados(11, 'Analista de Nomina', 'Gestiona de maneta precisa y eficiente el procedimiento');
+call sp_AgregarCargoEmpleados(12, 'Analista de Nomina', 'Gestiona de manera eficiente');
 
 
 -- ---- Listar CargoEmpleados -----
@@ -737,6 +738,7 @@ Delimiter ;
 call sp_AgregarEmpleados(1, 'Daniel', 'Hernandez', '3500', 'Mixco', 'Dia', 1);
 call sp_AgregarEmpleados(2, 'Fredy', 'Gomez', '6000', 'Juana de Arco', 'Noche', 9);
 call sp_AgregarEmpleados(3, 'Josue', 'Perez', '4500', 'Zona 18', 'Noche', 11);
+call sp_AgregarEmpleados(4, 'Fernando', 'Perez', '7000', 'Zona 14', 'Tarde', 12);
 
 
 -- ---- Listar Empleados ----  
@@ -780,7 +782,7 @@ Delimiter ;
 call sp_BuscarEmpleados(2);
 
 
-
+-- ---- Eliminar Empleados ----
 Delimiter $$
 	create procedure sp_EliminarEmpleados(in codigoE int)
 		begin
@@ -817,6 +819,94 @@ call sp_EditarEmpleados(1, 'Anthony', 'Davis', '15500', 'Zacapa', 'Dia', 1);
 
 -- ------------------- Facturas --------------------
 -- ---- Agregar Facturas ----  
+Delimiter $$
+	create procedure sp_AgregarFacturas(in numeroFactura int, in estado varchar(50), in totalFactura decimal(10,2), 
+    in fechaFactura varchar(45), in codigoCliente int, in codigoEmpleado int)
+		begin
+			insert into Facturas (numeroFactura, estado, totalFactura, fechaFactura, codigoCliente, codigoEmpleado)
+				values (numeroFactura, estado, totalFactura, fechaFactura, codigoCliente, codigoEmpleado);
+                
+		End $$
+        
+Delimiter ;
+call sp_AgregarFacturas(30, 'Guatemala', '1025.60', '2023-06-15', 01, 1);
+call sp_AgregarFacturas(31, 'Guatemala', '500.10', '2024-01-05', 02, 2);
+call sp_AgregarFacturas(32, 'Guatemala', '600.00', '2025-08-20', 03, 3);
+call sp_AgregarFacturas(33, 'Guatemala', '2010.00', '2026-10-20', 04, 4);
+
+
+-- ---- Listar Facturas ----  
+Delimiter $$
+	create procedure sp_ListarFacturas()
+		begin
+			select
+            F.numeroFactura,
+            F.estado,
+            F.totalFactura,
+            F.fechaFactura,
+            F.codigoCliente,
+            F.codigoEmpleado
+            from Facturas F;
+            
+		End $$
+        
+Delimiter ;
+call  sp_ListarFacturas();
+
+
+-- ---- Buscar Facturas ----   
+Delimiter $$
+	create procedure sp_BuscarFacturas(in numeroFac int)
+		begin 
+			select
+            F.numeroFactura,
+            F.estado,
+            F.totalFactura,
+            F.fechaFactura,
+            F.codigoCliente,
+            F.codigoEmpleado
+            from Facturas F
+            where numeroFactura = numeroFac;
+            
+		End $$
+        
+Delimiter ;
+call sp_BuscarFacturas(33);
+
+
+-- ---- Eliminar Facturas ----   
+Delimiter $$
+	create procedure sp_EliminarFacturas(in numeroFac int)
+		begin
+			Delete from Facturas 
+				where numeroFactura = numeroFac;
+                
+		End $$
+        
+Delimiter ;
+call sp_EliminarFacturas(32);
+call sp_ListarFacturas();
+
+
+-- ---- Editar Facturas ----   
+Delimiter $$
+	create procedure sp_EditarFacturas(in numeroFac int, in estado varchar(50), in totalFac decimal(10,2), 
+		in fechaFac varchar(45), in codigoCliente int, in codigoEmpleado int)
+			begin
+				update Facturas F
+                set
+                F.estado  = estado,
+			    F.totalFactura  = totalFac,
+				F.fechaFactura  =  fechaFac,
+				F.codigoCliente  = codigoCliente,
+				F.codigoEmpleado = codigoEmpleado 
+				where numeroFactura = numeroFac;
+                
+			End $$
+            
+Delimiter ;
+call sp_EditarFactura(30, 'Zacapa', '1600.00', '2024-05-19', 2, 2);
+
 
 
 

@@ -13,6 +13,7 @@ import org.fredyhernandez.controller.MenuCargoEmpleadosController;
 import org.fredyhernandez.controller.MenuClientesController;
 import org.fredyhernandez.controller.MenuComprasController;
 import org.fredyhernandez.controller.MenuEmpleadosController;
+import org.fredyhernandez.controller.MenuFacturasController;
 import org.fredyhernandez.controller.MenuPrincipalController;
 import org.fredyhernandez.controller.MenuProductosController;
 import org.fredyhernandez.controller.MenuProveedoresController;
@@ -145,6 +146,17 @@ public class Principal extends Application {
         try{
             MenuEmpleadosController menuEmpleadosView = (MenuEmpleadosController) cambiarEscena ("MenuEmpleadosView.fxml", 1251, 704);
             menuEmpleadosView.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            e.printStackTrace();
+            
+        }
+    }
+    
+    public void menuFacturasView(){
+        try{
+            MenuFacturasController menuFacturasView = (MenuFacturasController) cambiarEscena ("MenuFacturasView.fxml", 1229, 684);
+            menuFacturasView.setEscenarioPrincipal(this);
+            
         }catch(Exception e){
             e.printStackTrace();
             

@@ -81,15 +81,12 @@ public class Clientes {
 
     public void setCorreoCliente(String correoCliente) {
         this.correoCliente = correoCliente;
-    }
-
-    public void setCodigoCliente(TextField txtCodigoC) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setCodigoCliente(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
-    
+    @Override
+    public String toString() {
+        return "│" + getCodigoCliente();
+        
+    }
 }

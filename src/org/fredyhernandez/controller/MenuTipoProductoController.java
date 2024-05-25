@@ -170,8 +170,8 @@ public class MenuTipoProductoController implements Initializable {
                     activarControles();
                     btnEditar.setText("Editar");
                     btnReporte.setText("Cancelar");
-                    btnAgregar.setDisable(false);
-                    btnEliminar.setDisable(false);
+                    btnAgregar.setDisable(true);
+                    btnEliminar.setDisable(true);
                     imagEditar.setImage(new Image("/org/fredyhernandez/images/Editar.png"));
                     imagReporte.setImage(new Image("/org/fredyhernandez/images/Cancelar.png"));
                     txtcodigoTP.setEditable(false);
