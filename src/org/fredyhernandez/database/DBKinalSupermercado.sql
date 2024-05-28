@@ -905,7 +905,7 @@ Delimiter $$
 			End $$
             
 Delimiter ;
-call sp_EditarFactura(30, 'Zacapa', '1600.00', '2024-05-19', 2, 2);
+call sp_EditarFacturas(30, 'Zacapa', '1600.00', '2024-05-19', 2, 2);
 
 
 
