@@ -72,7 +72,7 @@
                   </ImageView>
                </graphic>
                <styleClass>
-                  <String fx:value="button3" />
+                  <String fx:value="button1" />
                   <String fx:value="button2" />
                </styleClass>
             </Button>

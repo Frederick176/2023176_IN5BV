@@ -56,7 +56,7 @@ create table TelefonoProveedor(
     codigoProveedor int not null,
     primary key PK_codigoTelefonoProveedor (codigoTelefonoProveedor),
     constraint FK_TelefonoProveedor_Proveedores foreign key TelefonoProveedor(codigoProveedor)
-		references Proveedores(codigoProveedor)
+		references Proveedores(codigoProveedor) on delete cascade on update cascade
 );
 
 create table Productos(
@@ -70,9 +70,9 @@ create table Productos(
     codigoProveedor int not null,
     primary key PK_codigoProducto (codigoProducto),
     constraint FK_Productos_TipoProducto foreign key Productos(codigoTipoProducto)
-		references TipoProducto (codigoTipoProducto),
+		references TipoProducto (codigoTipoProducto) on delete cascade on update cascade,
 	constraint FK_Productos_Proveedores foreign key Productos(codigoProveedor)
-		references Proveedores (codigoProveedor)
+		references Proveedores (codigoProveedor) on delete cascade on update cascade
 );
 
 create table Empleados(
@@ -85,7 +85,7 @@ create table Empleados(
     codigoCargoEmpleado int not null,
     primary key PK_codigoEmpleado (codigoEmpleado),
     constraint FK_Empleados_CargoEmpleados foreign key Empleados (codigoCargoEmpleado)
-		references CargoEmpleados (codigoCargoEmpleado)
+		references CargoEmpleados (codigoCargoEmpleado) on delete cascade on update cascade
 );
 
 create table Facturas(
@@ -97,9 +97,9 @@ create table Facturas(
     codigoEmpleado int not null,
     primary key PK_numeroFactura (numeroFactura),
     constraint FK_Facturas_Clientes foreign key Facturas(codigoCliente)
-		references Clientes(codigoCliente),
+		references Clientes(codigoCliente) ,
 	constraint FK_Facturas_Empleados foreign key Facturas(codigoEmpleado)
-		references Empleados(codigoEmpleado)
+		references Empleados(codigoEmpleado) 
 );
 
 
@@ -430,16 +430,16 @@ call sp_BuscarCargoEmpleados(11);
 
 -- ---- Eliminar CargoEmpleados -----
 Delimiter $$
-	create procedure sp_EliminarCargoEmpleados(in codCargoE int)
+	create procedure sp_EliminarCargoEmpleados(in codCargoEmp int)
 		begin 
 			Delete from CargoEmpleados
-				where codigoCargoEmpleado = codCargoE;
+				where codigoCargoEmpleado = codCargoEmp;
                 
 		End $$
         
 Delimiter ;
-/*call sp_EliminarCargoEmpleados(9);
-call sp_ListarCargoEmpleados();*/
+-- call sp_EliminarCargoEmpleados(9);
+-- call sp_ListarCargoEmpleados();*/
 
 
 -- ---- Editar CargoEmpleados -----
@@ -735,9 +735,9 @@ Delimiter $$
 		End $$
         
 Delimiter ;
-call sp_AgregarEmpleados(1, 'Daniel', 'Hernandez', '3500', 'Mixco', 'Dia', 1);
-call sp_AgregarEmpleados(2, 'Fredy', 'Gomez', '6000', 'Juana de Arco', 'Noche', 9);
-call sp_AgregarEmpleados(3, 'Josue', 'Perez', '4500', 'Zona 18', 'Noche', 11);
+call sp_AgregarEmpleados(1, 'Daniel', 'Hernandez', '3500', 'Mixco', 'Mañana', 1);
+call sp_AgregarEmpleados(5, 'Fredy', 'Gomez', '6000', 'Juana de Arco', 'Noche', 9);
+call sp_AgregarEmpleados(3, 'Josue', 'Perez', '4500', 'Zona 18', 'Mañana', 11);
 call sp_AgregarEmpleados(4, 'Fernando', 'Perez', '7000', 'Zona 14', 'Tarde', 12);
 
 
@@ -821,18 +821,18 @@ call sp_EditarEmpleados(1, 'Anthony', 'Davis', '15500', 'Zacapa', 'Dia', 1);
 -- ---- Agregar Facturas ----  
 Delimiter $$
 	create procedure sp_AgregarFacturas(in numeroFactura int, in estado varchar(50), in totalFactura decimal(10,2), 
-    in fechaFactura varchar(45), in codigoCliente int, in codigoEmpleado int)
-		begin
-			insert into Facturas (numeroFactura, estado, totalFactura, fechaFactura, codigoCliente, codigoEmpleado)
-				values (numeroFactura, estado, totalFactura, fechaFactura, codigoCliente, codigoEmpleado);
-                
+	in fechaFactura varchar(45), in codigoCliente int, in codigoEmpleado int)
+		Begin
+			insert into Facturas(numeroFactura, estado, totalFactura, fechaFactura, codigoCliente, codigoEmpleado) 
+            values (numeroFactura, estado, totalFactura, fechaFactura, codigoCliente, codigoEmpleado);
+            
 		End $$
-        
 Delimiter ;
-call sp_AgregarFacturas(30, 'Guatemala', '1025.60', '2023-06-15', 01, 1);
-call sp_AgregarFacturas(31, 'Guatemala', '500.10', '2024-01-05', 02, 2);
-call sp_AgregarFacturas(32, 'Guatemala', '600.00', '2025-08-20', 03, 3);
-call sp_AgregarFacturas(33, 'Guatemala', '2010.00', '2026-10-20', 04, 4);
+
+call sp_AgregarFacturas(1, 'Guatemala', '1025.60', '2023-06-15', 01, 1);
+call sp_AgregarFacturas(2, 'Zacapa', '2023.00', '2020-05-12', 02, 5);
+call sp_AgregarFacturas(3, 'Guatemala', '600.00', '2025-08-20', 03, 3);
+call sp_AgregarFacturas(4, 'Guatemala', '2010.00', '2026-10-20', 04, 4);
 
 
 -- ---- Listar Facturas ----  
@@ -884,8 +884,8 @@ Delimiter $$
 		End $$
         
 Delimiter ;
-call sp_EliminarFacturas(32);
-call sp_ListarFacturas();
+/*call sp_EliminarFacturas(32);
+call sp_ListarFacturas();*/
 
 
 -- ---- Editar Facturas ----   

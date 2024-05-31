@@ -14,7 +14,7 @@
             <Image url="@../images/Imagen%20de%20un%20supermercado.jpeg" />
          </image>
       </ImageView>
-      <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="940.0">
+      <MenuBar layoutY="1.0" prefHeight="31.0" prefWidth="940.0">
         <menus>
           <Menu mnemonicParsing="false" text="Modulo">
             <items>
