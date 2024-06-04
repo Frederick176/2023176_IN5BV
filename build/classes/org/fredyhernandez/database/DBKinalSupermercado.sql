@@ -829,10 +829,10 @@ Delimiter $$
 		End $$
 Delimiter ;
 
-call sp_AgregarFacturas(1, 'Guatemala', '1025.60', '2023-06-15', 01, 1);
-call sp_AgregarFacturas(2, 'Zacapa', '2023.00', '2020-05-12', 02, 5);
-call sp_AgregarFacturas(3, 'Guatemala', '600.00', '2025-08-20', 03, 3);
-call sp_AgregarFacturas(4, 'Guatemala', '2010.00', '2026-10-20', 04, 4);
+call sp_AgregarFacturas(30, 'Guatemala', '1025.60', '2023-06-15', 01, 1);
+call sp_AgregarFacturas(31, 'Zacapa', '2023.00', '2020-05-12', 02, 5);
+call sp_AgregarFacturas(32, 'Guatemala', '600.00', '2025-08-20', 03, 3);
+call sp_AgregarFacturas(33, 'Guatemala', '2010.00', '2026-10-20', 04, 4);
 
 
 -- ---- Listar Facturas ----  
@@ -905,8 +905,7 @@ Delimiter $$
 			End $$
             
 Delimiter ;
-call sp_EditarFacturas(30, 'Zacapa', '1600.00', '2024-05-19', 2, 2);
-
+call sp_EditarFacturas(30, 'Zacapa', '1600.00', '2024-05-19', 01, 1);
 
 
 

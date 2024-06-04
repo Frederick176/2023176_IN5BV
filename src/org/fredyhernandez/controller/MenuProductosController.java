@@ -294,7 +294,7 @@ public class MenuProductosController implements Initializable {
            case NINGUNO:
                if(tblProductos.getSelectionModel().getSelectedItem() != null){
                    activarControles();
-                   btnEditar.setText("Actualizar");
+                    btnEditar.setText("Actualizar");
                     btnReporte.setText("Cancelar");
                     btnAgregar.setDisable(true);
                     btnEliminar.setDisable(true);
@@ -315,7 +315,7 @@ public class MenuProductosController implements Initializable {
                    btnAgregar.setDisable(false);
                    btnEliminar.setDisable(false);
                    imagEditar.setImage(new Image("/org/fredyhernandez/images/EditarProductos.png"));
-                imagReporte.setImage(new Image("/org/fredyhernandez/images/ReportesProductos.png"));
+                   imagReporte.setImage(new Image("/org/fredyhernandez/images/ReportesProductos.png"));
                    limpiarControles();
                    tipoDeOperaciones = operaciones.NINGUNO;
                    cargarDatos();
