@@ -43,7 +43,7 @@
          <children>
             <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="104.0" prefWidth="185.0" styleClass="button2" stylesheets="@../resource/ProveedoresCSS.css" text="Agregar">
                <graphic>
-                  <ImageView fx:id="imagAgregar" fitHeight="101.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imagAgregar" fitHeight="100.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/AgregarGeneral.png" />
                      </image>
