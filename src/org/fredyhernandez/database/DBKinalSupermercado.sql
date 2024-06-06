@@ -97,7 +97,7 @@ create table Facturas(
     codigoEmpleado int not null,
     primary key PK_numeroFactura (numeroFactura),
     constraint FK_Facturas_Clientes foreign key Facturas(codigoCliente)
-		references Clientes(codigoCliente) ,
+		references Clientes(codigoCliente) on delete cascade on update cascade,
 	constraint FK_Facturas_Empleados foreign key Facturas(codigoEmpleado)
 		references Empleados(codigoEmpleado) 
 );

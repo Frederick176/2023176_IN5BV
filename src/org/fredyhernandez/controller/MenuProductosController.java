@@ -94,7 +94,7 @@ public class MenuProductosController implements Initializable {
         txtPrecioMayor.setText(String.valueOf(((Productos)tblProductos.getSelectionModel().getSelectedItem()).getPrecioMayor()));
         txtExistencia.setText(String.valueOf(((Productos)tblProductos.getSelectionModel().getSelectedItem()).getExistencia()));
         cmbCodigoTipoProducto.getSelectionModel().select(buscarTipoProducto(((Productos)tblProductos.getSelectionModel().getSelectedItem()).getCodigoTipoProducto()));
-        
+        cmbCodigoTipoProducto.getSelectionModel().select(buscarProveedores(((Productos)tblProductos.getSelectionModel().getSelectedItem()).getCodigoProveedor()));
     }
     
     public TipoProducto buscarTipoProducto(int codigoTipoProducto){
@@ -108,6 +108,32 @@ public class MenuProductosController implements Initializable {
                                                              registro.getString("descripcion")
                 );
                 
+            }
+            
+        }catch(Exception e){
+            e.printStackTrace();
+            
+        }
+        
+        return resultado;
+    }
+    
+    public Proveedores buscarProveedores (int codigoProveedor){
+        Proveedores resultado = null;
+        try{
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_BuscarProveedores(?)}");
+            procedimiento.setInt(1, codigoProveedor);
+            ResultSet registro = procedimiento.executeQuery();
+            while(registro.next()){
+                resultado = new Proveedores(registro.getInt("codigoProveedor"),
+                                            registro.getString("nitProveedor"),
+                                            registro.getString("nombreProveedor"),
+                                            registro.getString("apellidoProveedor"),
+                                            registro.getString("direccionProveedor"),
+                                            registro.getString("razonSocial"),
+                                            registro.getString("contactoPrincipal"),
+                                            registro.getString("paginaWeb")
+                );
             }
             
         }catch(Exception e){

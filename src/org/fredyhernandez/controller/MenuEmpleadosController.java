@@ -180,6 +180,8 @@ public class MenuEmpleadosController implements Initializable {
                      btnEliminar.setText("Eliminar");
                      btnEditar.setDisable(false);
                      btnReporte.setDisable(false);
+                     imagAgregar.setImage(new Image("/org/fredyhernandez/images/AgregarGeneral.png"));
+                     imagEliminar.setImage(new Image("/org/fredyhernandez/images/EliminarGeneral.png"));
                      tipoDeOperaciones = operaciones.NINGUNO;
                      cargarDatos();
                      break;
@@ -223,6 +225,8 @@ public class MenuEmpleadosController implements Initializable {
                  btnEliminar.setText("Eliminar");
                  btnEditar.setDisable(false);
                  btnReporte.setDisable(false);
+                 imagAgregar.setImage(new Image("/org/fredyhernandez/images/AgregarGeneral.png"));
+                 imagEliminar.setImage(new Image("/org/fredyhernandez/images/EliminarGeneral.png"));
                  tipoDeOperaciones = operaciones.NINGUNO;
                  break;
              default:
@@ -277,6 +281,8 @@ public class MenuEmpleadosController implements Initializable {
                      btnReporte.setText("Reporte");
                      btnAgregar.setDisable(false);
                      btnEliminar.setDisable(false);
+                     imagEditar.setImage(new Image("/org/fredyhernandez/images/EditarGeneral.png"));
+                     imagReporte.setImage(new Image("/org/fredyhernandez/images/ReportesGeneral.png"));
                      limpiarControles();
                      tipoDeOperaciones = operaciones.NINGUNO;
                      cargarDatos();
