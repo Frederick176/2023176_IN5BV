@@ -154,7 +154,7 @@ public class Principal extends Application {
     
     public void menuFacturasView(){
         try{
-            MenuFacturasController menuFacturasView = (MenuFacturasController) cambiarEscena ("MenuFacturasView.fxml", 1229, 684);
+            MenuFacturasController menuFacturasView = (MenuFacturasController) cambiarEscena ("MenuFacturasView.fxml", 1218, 684);
             menuFacturasView.setEscenarioPrincipal(this);
             
         }catch(Exception e){
