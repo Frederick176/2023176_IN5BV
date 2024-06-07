@@ -99,7 +99,20 @@ create table Facturas(
     constraint FK_Facturas_Clientes foreign key Facturas(codigoCliente)
 		references Clientes(codigoCliente) on delete cascade on update cascade,
 	constraint FK_Facturas_Empleados foreign key Facturas(codigoEmpleado)
-		references Empleados(codigoEmpleado) 
+		references Empleados(codigoEmpleado) on delete cascade on update cascade
+);
+
+create table DetalleFactura(
+	codigoDetalleFactura int not null,
+    precioUnitario decimal (10,2),
+    cantidad int not null,
+    numeroFactura int not null,
+    codigoProducto varchar (15),
+    primary key PK_codigoDetalleFactura (codigoDetalleFactura),
+    constraint FK_DetalleFactura_Facturas foreign key Facturas(numeroFactura)
+		references Facturas(numeroFactura) on delete cascade on update cascade,
+	constraint Fk_DetalleFactura_Productos foreign key Productos(codigoProducto)
+		references Productos(codigoProducto) on delete cascade on update cascade
 );
 
 
@@ -906,6 +919,47 @@ Delimiter $$
             
 Delimiter ;
 call sp_EditarFacturas(30, 'Zacapa', '1600.00', '2024-05-19', 01, 1);
+
+
+-- ------------------- Detalle Factura --------------------
+-- ---- Agregar DetalleFactura ----
+Delimiter $$
+	create procedure sp_AgregarDetalleFactura(in codigoDetalleFactura int, in precioUnitario decimal(10,2), in cantidad int, 
+    in numeroFactura int, in codigoProducto varchar(15))
+		begin
+			insert into DetalleFactura(codigoDetalleFactura, precioUnitario, cantidad, numeroFactura, codigoProducto)
+				values (codigoDetalleFactura, precioUnitario, cantidad, numeroFactura, codigoProducto);
+                
+		End $$
+        
+Delimiter ;
+call sp_AgregarDetalleFactura(50, '250.35', '50', 30, 45);
+call sp_AgregarDetalleFactura(51, '650.45', '100', 31, 32);
+call sp_AgregarDetalleFactura(52, '150.10', '80', 32, 21);
+call sp_AgregarDetalleFactura(53, '95.45', '10', 33, 13);
+
+
+-- ---- Listar DetalleFactura ----
+Delimiter $$
+	create procedure sp_ListarDetalleFactura()
+		begin
+			select
+            DF.codigoDetalleFactura,
+            DF.precioUnitario,
+            DF.cantidad,
+            DF.numeroFactura,
+            DF.codigoProducto
+            from DetalleFactura DF;
+            
+		End $$
+        
+Delimiter ;
+call sp_ListarDetalleFactura();
+
+
+-- ---- Listar DetalleFactura ----
+
+
 
 
 

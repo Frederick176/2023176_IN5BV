@@ -14,8 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="684.0" prefWidth="1180.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="org.fredyhernandez.controller.MenuFacturasController">
+<AnchorPane id="AnchorPane" prefHeight="684.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fredyhernandez.controller.MenuFacturasController">
    <children>
       <ImageView fitHeight="684.0" fitWidth="1229.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -42,10 +41,38 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="98.0" prefWidth="189.0" styleClass="button2" stylesheets="@../resource/ProveedoresCSS.css" text="Agregar" />
-            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminar" prefHeight="99.0" prefWidth="204.0" styleClass="button2" stylesheets="@../resource/ProveedoresCSS.css" text="Eliminar" GridPane.rowIndex="1" />
-            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" prefHeight="99.0" prefWidth="190.0" styleClass="button2" stylesheets="@../resource/ProveedoresCSS.css" text="Editar" GridPane.rowIndex="2" />
-            <Button fx:id="btnReporte" mnemonicParsing="false" onAction="#reporte" prefHeight="100.0" prefWidth="185.0" styleClass="button2" stylesheets="@../resource/ProveedoresCSS.css" text="Reportes" GridPane.rowIndex="3" />
+            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="98.0" prefWidth="189.0" styleClass="button2" stylesheets="@../resource/ProveedoresCSS.css" text="Agregar">
+               <graphic>
+                  <ImageView fx:id="imagAgregar" fitHeight="91.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/AgregarGeneral.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminar" prefHeight="99.0" prefWidth="204.0" styleClass="button2" stylesheets="@../resource/ProveedoresCSS.css" text="Eliminar" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView fx:id="imagEliminar" fitHeight="84.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/EliminarGeneral.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" prefHeight="99.0" prefWidth="190.0" styleClass="button2" stylesheets="@../resource/ProveedoresCSS.css" text="Editar" GridPane.rowIndex="2">
+               <graphic>
+                  <ImageView fx:id="imagEditar" fitHeight="85.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/EditarGeneral.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnReporte" mnemonicParsing="false" onAction="#reporte" prefHeight="100.0" prefWidth="185.0" styleClass="button2" stylesheets="@../resource/ProveedoresCSS.css" text="Reportes" GridPane.rowIndex="3">
+               <graphic>
+                  <ImageView fx:id="imagReporte" fitHeight="110.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/ReportesGeneral.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
       </GridPane>
       <TableView fx:id="tblFactura" layoutX="207.0" layoutY="213.0" onMouseClicked="#seleccionarElemento" prefHeight="462.0" prefWidth="1003.0">

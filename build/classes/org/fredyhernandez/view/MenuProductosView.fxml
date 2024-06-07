@@ -41,7 +41,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="107.0" prefWidth="152.0" styleClass="button2" stylesheets="@../resource/ProveedoresCSS.css" text="Agregar">
+            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="112.0" prefWidth="159.0" styleClass="button2" stylesheets="@../resource/ProveedoresCSS.css" text="Agregar">
                <graphic>
                   <ImageView fx:id="imagAgregar" fitHeight="83.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -79,7 +79,7 @@
             </Button>
          </children>
       </GridPane>
-      <TableView fx:id="tblProductos" layoutX="172.0" layoutY="240.0" onMouseClicked="#seleccionarElemento" prefHeight="485.0" prefWidth="1135.0">
+      <TableView fx:id="tblProductos" layoutX="172.0" layoutY="239.0" onMouseClicked="#seleccionarElemento" prefHeight="485.0" prefWidth="1135.0">
         <columns>
           <TableColumn fx:id="colCodigoProducto" prefWidth="120.0" text="CodigoProducto" />
           <TableColumn fx:id="colDescripcionProducto" prefWidth="234.0" text="Descripcion Producto" />

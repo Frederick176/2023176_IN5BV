@@ -90,7 +90,7 @@ public class MenuFacturasController implements Initializable {
         txtTotalFactura.setText(String.valueOf(((Facturas)tblFactura.getSelectionModel().getSelectedItem()).getTotalFactura()));
         txtFechaFactura.setText(((Facturas)tblFactura.getSelectionModel().getSelectedItem()).getFechaFactura());
         cmbCodigoCliente.getSelectionModel().select(buscarClientes(((Facturas)tblFactura.getSelectionModel().getSelectedItem()).getCodigoCliente()));
-        
+        cmbCodigoEmpleado.getSelectionModel().select(buscarEmpleados(((Facturas)tblFactura.getSelectionModel().getSelectedItem()).getCodigoEmpleado()));
     }
     
     public Clientes buscarClientes(int codigoCliente){
@@ -117,6 +117,33 @@ public class MenuFacturasController implements Initializable {
         }
         
         return resultado;
+    }
+    
+    public Empleados buscarEmpleados(int codigoEmpleados){
+        Empleados resultado = null;
+        try{
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_BuscarEmpleados(?)}");
+            procedimiento.setInt(1, codigoEmpleados);
+            ResultSet registro = procedimiento.executeQuery();
+            while(registro.next()){
+                resultado = new Empleados(registro.getInt("codigoEmpleado"),
+                                                                registro.getString("nombreEmpleado"),
+                                                                registro.getString("apellidoEmpleado"),
+                                                                registro.getDouble("sueldo"),
+                                                                registro.getString("direccion"),
+                                                                registro.getString("turno"),
+                                                                registro.getInt("codigoCargoEmpleado")
+                );
+                
+            }
+            
+        }catch(Exception e){
+            e.printStackTrace();
+            
+        }
+        
+        return resultado;
+        
     }
     
      public ObservableList<Facturas> getFactura(){
@@ -214,6 +241,8 @@ public class MenuFacturasController implements Initializable {
                       btnEliminar.setText("Eliminar");
                       btnEditar.setDisable(false);
                       btnReporte.setDisable(false);
+                      imagAgregar.setImage(new Image("/org/fredyhernandez/images/AgregarGeneral.png"));
+                      imagEliminar.setImage(new Image("/org/fredyhernandez/images/EliminarGeneral.png"));
                       tipoDeOperaciones = operaciones.NINGUNO;
                       cargarDatos();
                       break;
@@ -254,6 +283,8 @@ public class MenuFacturasController implements Initializable {
                  btnEliminar.setText("Eliminar");
                  btnEditar.setDisable(false);
                  btnReporte.setDisable(false);
+                 imagAgregar.setImage(new Image("/org/fredyhernandez/images/AgregarGeneral.png"));
+                 imagEliminar.setImage(new Image("/org/fredyhernandez/images/EliminarGeneral.png"));
                  tipoDeOperaciones = operaciones.NINGUNO;
                  break;
              default:
@@ -281,6 +312,7 @@ public class MenuFacturasController implements Initializable {
          switch(tipoDeOperaciones){
              case NINGUNO:
                  if(tblFactura.getSelectionModel().getSelectedItem() != null){
+                     activarControles();
                      btnEditar.setText("Actualizar");
                      btnReporte.setText("Cancelar");
                      btnAgregar.setDisable(true);
@@ -300,6 +332,8 @@ public class MenuFacturasController implements Initializable {
                      btnReporte.setText("Reporte");
                      btnAgregar.setDisable(false);
                      btnEliminar.setDisable(false);
+                     imagEditar.setImage(new Image("/org/fredyhernandez/images/EditarGeneral.png"));
+                     imagReporte.setImage(new Image("/org/fredyhernandez/images/ReportesGeneral.png"));
                      limpiarControles();
                      tipoDeOperaciones = operaciones.NINGUNO;
                      cargarDatos();
