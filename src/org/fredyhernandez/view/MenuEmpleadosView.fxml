@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -21,7 +22,7 @@
             <Image url="@../images/MenuEmpleados.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnRegresar" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#regresar" prefHeight="66.0" prefWidth="73.0" styleClass="button2" stylesheets="@../resource/ProveedoresCSS.css">
+      <Button fx:id="btnRegresar" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#regresar" prefHeight="66.0" prefWidth="73.0" stylesheets="@../resource/ProveedoresCSS.css">
          <graphic>
             <ImageView fitHeight="70.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -29,6 +30,10 @@
                </image>
             </ImageView>
          </graphic>
+         <styleClass>
+            <String fx:value="button2" />
+            <String fx:value="button3" />
+         </styleClass>
       </Button>
       <GridPane alignment="CENTER" layoutX="14.0" layoutY="130.0" prefHeight="523.0" prefWidth="165.0">
         <columnConstraints>
@@ -41,38 +46,54 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="104.0" prefWidth="185.0" styleClass="button2" stylesheets="@../resource/ProveedoresCSS.css" text="Agregar">
+            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="104.0" prefWidth="185.0" stylesheets="@../resource/ProveedoresCSS.css" text="Agregar">
                <graphic>
                   <ImageView fx:id="imagAgregar" fitHeight="100.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/AgregarGeneral.png" />
                      </image>
                   </ImageView>
-               </graphic></Button>
-            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminar" prefHeight="104.0" prefWidth="184.0" styleClass="button2" stylesheets="@../resource/ProveedoresCSS.css" text="Eliminar" GridPane.rowIndex="1">
+               </graphic>
+               <styleClass>
+                  <String fx:value="button2" />
+                  <String fx:value="button3" />
+               </styleClass></Button>
+            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminar" prefHeight="104.0" prefWidth="184.0" stylesheets="@../resource/ProveedoresCSS.css" text="Eliminar" GridPane.rowIndex="1">
                <graphic>
                   <ImageView fx:id="imagEliminar" fitHeight="81.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/EliminarGeneral.png" />
                      </image>
                   </ImageView>
-               </graphic></Button>
-            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" prefHeight="100.0" prefWidth="225.0" styleClass="button2" stylesheets="@../resource/ProveedoresCSS.css" text="Editar" GridPane.rowIndex="2">
+               </graphic>
+               <styleClass>
+                  <String fx:value="button2" />
+                  <String fx:value="button3" />
+               </styleClass></Button>
+            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" prefHeight="100.0" prefWidth="225.0" stylesheets="@../resource/ProveedoresCSS.css" text="Editar" GridPane.rowIndex="2">
                <graphic>
                   <ImageView fx:id="imagEditar" fitHeight="93.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/EditarGeneral.png" />
                      </image>
                   </ImageView>
-               </graphic></Button>
-            <Button fx:id="btnReporte" mnemonicParsing="false" onAction="#reporte" prefHeight="106.0" prefWidth="176.0" styleClass="button2" stylesheets="@../resource/ProveedoresCSS.css" text="Reportes" GridPane.rowIndex="3">
+               </graphic>
+               <styleClass>
+                  <String fx:value="button2" />
+                  <String fx:value="button3" />
+               </styleClass></Button>
+            <Button fx:id="btnReporte" mnemonicParsing="false" onAction="#reporte" prefHeight="106.0" prefWidth="176.0" stylesheets="@../resource/ProveedoresCSS.css" text="Reportes" GridPane.rowIndex="3">
                <graphic>
                   <ImageView fx:id="imagReporte" fitHeight="91.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/ReportesGeneral.png" />
                      </image>
                   </ImageView>
-               </graphic></Button>
+               </graphic>
+               <styleClass>
+                  <String fx:value="button2" />
+                  <String fx:value="button3" />
+               </styleClass></Button>
          </children>
       </GridPane>
       <TableView fx:id="tblEmpleados" layoutX="196.0" layoutY="256.0" onMouseClicked="#seleccionarElemento" prefHeight="441.0" prefWidth="1045.0">

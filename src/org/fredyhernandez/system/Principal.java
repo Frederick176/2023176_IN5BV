@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import org.fredyhernandez.controller.MenuCargoEmpleadosController;
 import org.fredyhernandez.controller.MenuClientesController;
 import org.fredyhernandez.controller.MenuComprasController;
+import org.fredyhernandez.controller.MenuDetalleFacturaController;
 import org.fredyhernandez.controller.MenuEmpleadosController;
 import org.fredyhernandez.controller.MenuFacturasController;
 import org.fredyhernandez.controller.MenuPrincipalController;
@@ -160,6 +161,16 @@ public class Principal extends Application {
         }catch(Exception e){
             e.printStackTrace();
             
+        }
+    }
+    
+    public void menuDetalleFactura(){
+        try{
+            MenuDetalleFacturaController menuDetalleFacturaView = (MenuDetalleFacturaController) cambiarEscena ("MenuDetalleFacturaView.fxml", 1291, 716);
+            menuDetalleFacturaView.setEscenarioPrincipal(this);
+            
+        }catch(Exception e){
+            e.printStackTrace();
         }
     }
     
