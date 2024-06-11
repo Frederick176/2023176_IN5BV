@@ -28,5 +28,4 @@ public class MenuDetalleFacturaController implements Initializable {
             escenarioPrincipal.menuPrincipalView();
         }
     }
-    
 }
