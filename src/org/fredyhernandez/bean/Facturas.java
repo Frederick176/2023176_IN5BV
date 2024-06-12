@@ -68,6 +68,12 @@ public class Facturas {
 
     public void setCodigoEmpleado(int codigoEmpleado) {
         this.codigoEmpleado = codigoEmpleado;
+        
     }
     
+    @Override
+    public String toString() {
+        return "│" + getNumeroFactura();
+        
+    }
 }

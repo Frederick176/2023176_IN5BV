@@ -168,7 +168,7 @@ public class MenuTipoProductoController implements Initializable {
             case NINGUNO:
                 if (tblTipoProducto.getSelectionModel().getSelectedItem() != null){
                     activarControles();
-                    btnEditar.setText("Editar");
+                    btnEditar.setText("Actualizar");
                     btnReporte.setText("Cancelar");
                     btnAgregar.setDisable(false);
                     btnEliminar.setDisable(false);

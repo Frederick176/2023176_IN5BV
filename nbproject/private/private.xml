@@ -5,17 +5,18 @@
             <url>src/org/fredyhernandez/controller/MenuProductosController.java</url>
             <bookmark id="1">
                 <name/>
-                <line>415</line>
+                <line>417</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/informatica/Desktop/Repositorio%202023176/2023176_IN5BV/src/org/fredyhernandez/controller/MenuDetalleFacturaController.java</file>
-            <file>file:/C:/Users/informatica/Desktop/Repositorio%202023176/2023176_IN5BV/src/org/fredyhernandez/controller/MenuCargoEmpleadosController.java</file>
-            <file>file:/C:/Users/informatica/Desktop/Repositorio%202023176/2023176_IN5BV/src/org/fredyhernandez/system/Principal.java</file>
-            <file>file:/C:/Users/informatica/Desktop/Repositorio%202023176/2023176_IN5BV/src/org/fredyhernandez/db/Conexion.java</file>
+            <file>file:/C:/Users/sandr/OneDrive/Escritorio/Repositorio%20Casa/2023176_IN5BV/src/org/fredyhernandez/controller/MenuClientesController.java</file>
+            <file>file:/C:/Users/sandr/OneDrive/Escritorio/Repositorio%20Casa/2023176_IN5BV/src/org/fredyhernandez/controller/MenuProductosController.java</file>
+            <file>file:/C:/Users/sandr/OneDrive/Escritorio/Repositorio%20Casa/2023176_IN5BV/src/org/fredyhernandez/controller/MenuTipoProductoController.java</file>
+            <file>file:/C:/Users/sandr/OneDrive/Escritorio/Repositorio%20Casa/2023176_IN5BV/src/org/fredyhernandez/controller/MenuDetalleFacturaController.java</file>
+            <file>file:/C:/Users/sandr/OneDrive/Escritorio/Repositorio%20Casa/2023176_IN5BV/src/org/fredyhernandez/db/Conexion.java</file>
         </group>
     </open-files>
 </project-private>

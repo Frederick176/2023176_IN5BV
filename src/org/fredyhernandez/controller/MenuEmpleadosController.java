@@ -325,6 +325,8 @@ public class MenuEmpleadosController implements Initializable {
                 btnReporte.setText("Reporte");
                 btnAgregar.setDisable(false);
                 btnEliminar.setDisable(false);
+                imagEditar.setImage(new Image("/org/fredyhernandez/images/EditarGeneral.png"));
+                imagReporte.setImage(new Image("/org/fredyhernandez/images/ReportesGeneral.png"));
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
                 
