@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteClientes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b297b3e5-355f-43db-837c-5f6e7a1e4c2a">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="144"/>
+	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[call sp_ListarClientes]]>
 	</queryString>
@@ -29,9 +29,9 @@
 	</field>
 	<background>
 		<band height="802" splitType="Stretch">
-			<image scaleImage="FillFrame">
-				<reportElement x="0" y="0" width="555" height="802" uuid="350a60e1-a536-4523-b5b4-1dd8f05ce21f"/>
-				<imageExpression><![CDATA["C:\\Users\\sandr\\OneDrive\\Escritorio\\Repositorio Casa\\2023176_IN5BV\\src\\org\\fredyhernandez\\images\\ReporteClientes.png"]]></imageExpression>
+			<image scaleImage="FillFrame" hAlign="Left">
+				<reportElement x="0" y="0" width="555" height="802" uuid="fb1cb5e0-7bc7-476f-a058-3d26b019f516"/>
+				<imageExpression><![CDATA["C:\\Users\\sandr\\OneDrive\\Escritorio\\Repositorio\\2023176_IN5BV\\src\\org\\fredyhernandez\\images\\ReporteClientes.png"]]></imageExpression>
 			</image>
 		</band>
 	</background>

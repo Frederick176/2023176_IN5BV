@@ -4,6 +4,8 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,6 +25,7 @@ import org.fredyhernandez.bean.Productos;
 import org.fredyhernandez.bean.Proveedores;
 import org.fredyhernandez.bean.TipoProducto;
 import org.fredyhernandez.db.Conexion;
+import org.fredyhernandez.report.GenerarReportes;
 import org.fredyhernandez.system.Principal;
 
 public class MenuProductosController implements Initializable {
@@ -379,6 +382,9 @@ public class MenuProductosController implements Initializable {
    
    public void reporte(){
        switch(tipoDeOperaciones){
+           case NINGUNO:
+                imprimirReporte();
+                break;
            case ACTUALIZAR:
                desactivarControles();
                limpiarControles();
@@ -392,6 +398,12 @@ public class MenuProductosController implements Initializable {
                break;
                
        }
+   }
+   
+   public void imprimirReporte(){
+       Map parametros = new HashMap();
+       parametros.put("codigoProducto", null);
+       GenerarReportes.mostrarReportes("ReporteProductos.jasper", "Reporte de los productos", parametros);
    }
    
     public void desactivarControles(){
