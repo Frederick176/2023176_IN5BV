@@ -1205,12 +1205,4 @@ Delimiter ;;
 call sp_EditarEmailProveedor(90, 'ulises22@gmail.com', 'Oficial', 10);
 
 
-
--- ---------------------- Procedimientos Almacenados ----------------------
-
-
-
-
-
-
 set global time_zone = '-6:00'	

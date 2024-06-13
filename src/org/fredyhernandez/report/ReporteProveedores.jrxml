@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteProveedores" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a95b5ef5-a3a0-4474-a95b-83fff9562d99">
+	<property name="ireport.zoom" value="1.6105100000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="48"/>
+	<queryString>
+		<![CDATA[call sp_ListarProveedores]]>
+	</queryString>
+	<field name="codigoProveedor" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nitProveedor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombreProveedor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellidoProveedor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="direccionProveedor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="razonSocial" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="contactoPrincipal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="paginaWeb" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="0" y="0" width="555" height="802" uuid="4079bade-10bb-4ff8-a203-1f3380fa643a"/>
+				<imageExpression><![CDATA["C:\\Users\\sandr\\OneDrive\\Escritorio\\Repositorio Casa\\2023176_IN5BV\\src\\org\\fredyhernandez\\images\\ReporteProveedores.png"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="76" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="16" y="0" width="73" height="20" uuid="29d3cc69-517c-459e-9b72-1a503c8d8020"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nit Proveedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="0" width="100" height="20" uuid="026ec8f1-218f-45b5-aff5-9fd4a7a55b14"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre Proveedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="0" width="100" height="20" uuid="9a3ca1d7-581a-4132-bd1b-ec5736b6f922"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellido Proveedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="427" y="0" width="100" height="20" uuid="d731c4ca-511f-4ef0-bc6e-ac8cd343dae0"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ContactoPrincipal]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="51" splitType="Stretch">
+			<textField>
+				<reportElement x="16" y="15" width="73" height="20" uuid="8a354d0f-9c8c-4066-accb-17a4c3b1eda4"/>
+				<textFieldExpression><![CDATA[$F{nitProveedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="141" y="15" width="100" height="20" uuid="2456ed47-f351-4a5a-9480-778f3b9d7125"/>
+				<textFieldExpression><![CDATA[$F{nombreProveedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="285" y="15" width="100" height="20" uuid="f6a010bc-48cd-4cf2-82d7-2435973fbef1"/>
+				<textFieldExpression><![CDATA[$F{apellidoProveedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="427" y="15" width="100" height="20" uuid="d5f53ceb-fc3e-4335-9d48-69798e1b55b8"/>
+				<textFieldExpression><![CDATA[$F{contactoPrincipal}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="16" y="0" width="511" height="1" uuid="b159f138-8bc4-436e-8d58-06ecbe846986"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

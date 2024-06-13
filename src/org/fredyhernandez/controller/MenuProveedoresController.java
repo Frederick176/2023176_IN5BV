@@ -4,6 +4,8 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,6 +22,7 @@ import javafx.scene.image.ImageView;
 import javax.swing.JOptionPane;
 import org.fredyhernandez.bean.Proveedores;
 import org.fredyhernandez.db.Conexion;
+import org.fredyhernandez.report.GenerarReportes;
 import org.fredyhernandez.system.Principal;
 
 public class MenuProveedoresController implements Initializable {
@@ -269,6 +272,9 @@ public class MenuProveedoresController implements Initializable {
      
      public void reporte(){
          switch(tipoDeOperaciones){
+             case NINGUNO:
+                 imprimirReporte();
+                 break;
              case ACTUALIZAR:
                 desactivarControles();
                 limpiarControles();
@@ -282,6 +288,12 @@ public class MenuProveedoresController implements Initializable {
                 break;
                 
          }
+     }
+     
+     public void imprimirReporte(){
+         Map parametros = new HashMap();
+          parametros.put("codigoProveedor", null);
+          GenerarReportes.mostrarReportes("ReporteProveedores.jasper", "Reporte de los Proveedores", parametros);
      }
     
     public void desactivarControles(){

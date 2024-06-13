@@ -4,6 +4,8 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,6 +22,7 @@ import javafx.scene.image.ImageView;
 import javax.swing.JOptionPane;
 import org.fredyhernandez.bean.Clientes;
 import org.fredyhernandez.db.Conexion;
+import org.fredyhernandez.report.GenerarReportes;
 import org.fredyhernandez.system.Principal;
 
 
@@ -256,6 +259,9 @@ public class MenuClientesController implements Initializable {
     
     public void reporte(){
         switch(tipoDeOperaciones){
+            case NINGUNO:
+                imprimirReporte();
+                break;
             case ACTUALIZAR:
                 desactivarControles();
                 limpiarControles();
@@ -267,8 +273,18 @@ public class MenuClientesController implements Initializable {
                 imagReporte.setImage(new Image("/org/fredyhernandez/images/ReportesClientes.png"));
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
+                
         }
     }
+    
+    public void imprimirReporte(){
+        Map parametros = new HashMap();
+        parametros.put("codigoCliente", null);
+        GenerarReportes.mostrarReportes("ReporteClientes.jasper", "Reporte de los clientes", parametros);
+        
+        
+    }
+    
     public void desactivarControles(){
         txtCodigoC.setEditable(false);
         txtNombreC.setEditable(false);
