@@ -14,9 +14,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="597.0" prefWidth="1061.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fredyhernandez.controller.MenuClientesController">
+<AnchorPane id="AnchorPane" prefHeight="623.0" prefWidth="1124.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fredyhernandez.controller.MenuClientesController">
    <children>
-      <ImageView fitHeight="597.0" fitWidth="1062.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="641.0" fitWidth="1131.0" layoutX="-7.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/MenuClientes.png" />
          </image>
@@ -26,7 +26,7 @@
             <Image url="@../images/ClientesIcon.png" />
          </image>
       </ImageView>
-      <GridPane layoutX="851.0" prefHeight="597.0" prefWidth="211.0">
+      <GridPane layoutX="899.0" layoutY="9.0" prefHeight="597.0" prefWidth="211.0">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -94,15 +94,15 @@
             </Button>
          </children>
       </GridPane>
-      <TableView fx:id="tblClientes" layoutY="293.0" onMouseClicked="#seleccionarElemento" prefHeight="304.0" prefWidth="845.0" stylesheets="@../resource/ProveedoresCSS.css">
+      <TableView fx:id="tblClientes" layoutX="4.0" layoutY="302.0" onMouseClicked="#seleccionarElemento" prefHeight="313.0" prefWidth="895.0" stylesheets="@../resource/ProveedoresCSS.css">
         <columns>
           <TableColumn fx:id="colCodigoC" prefWidth="118.0" text="codigoCliente" />
           <TableColumn fx:id="colNit" prefWidth="86.0" text="NITCliente" />
-            <TableColumn fx:id="colNombreC" prefWidth="111.0" text="NombreCliente" />
-            <TableColumn fx:id="colApellidoC" prefWidth="123.0" text="ApellidoCliente" />
-            <TableColumn fx:id="colDireccionC" prefWidth="137.0" text="DireccionCliente" />
-            <TableColumn fx:id="colTelefonoC" prefWidth="128.0" text="TelefonoCliente" />
-            <TableColumn fx:id="colCorreoC" prefWidth="141.0" text="CorreoCliente" />
+            <TableColumn fx:id="colNombreC" prefWidth="118.0" text="NombreCliente" />
+            <TableColumn fx:id="colApellidoC" prefWidth="128.0" text="ApellidoCliente" />
+            <TableColumn fx:id="colDireccionC" prefWidth="150.0" text="DireccionCliente" />
+            <TableColumn fx:id="colTelefonoC" prefWidth="121.0" text="TelefonoCliente" />
+            <TableColumn fx:id="colCorreoC" prefWidth="172.0" text="CorreoCliente" />
         </columns>
       </TableView>
       <Button fx:id="btnRegresar" layoutX="609.0" mnemonicParsing="false" onAction="#regresar" prefHeight="44.0" prefWidth="59.0" stylesheets="@../resource/KinalSupermercadoCSS.css">

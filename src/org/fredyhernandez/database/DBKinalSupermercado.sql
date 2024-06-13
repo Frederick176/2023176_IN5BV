@@ -1205,4 +1205,15 @@ Delimiter ;;
 call sp_EditarEmailProveedor(90, 'ulises22@gmail.com', 'Oficial', 10);
 
 
+
+
+select * from DetalleFactura
+	join Facturas on DetalleFactura.numeroFactura = Facturas.numeroFactura
+	join Clientes on Facturas.codigoCliente = Clientes.codigoCliente
+    join Productos on DetalleFactura.codigoProducto = Productos.codigoProducto
+    
+    where Facturas.numeroFactura = 30;
+
+
+
 set global time_zone = '-6:00'	
