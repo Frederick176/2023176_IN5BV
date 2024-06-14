@@ -4,6 +4,8 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,6 +25,7 @@ import org.fredyhernandez.bean.Clientes;
 import org.fredyhernandez.bean.Empleados;
 import org.fredyhernandez.bean.Facturas;
 import org.fredyhernandez.db.Conexion;
+import org.fredyhernandez.report.GenerarReportes;
 import org.fredyhernandez.system.Principal;
 
 public class MenuFacturasController implements Initializable {
@@ -366,6 +369,8 @@ public class MenuFacturasController implements Initializable {
      
      public void reporte(){
          switch(tipoDeOperaciones){
+             case NINGUNO:
+                 imprimirReporte();
              case ACTUALIZAR:
                  desactivarControles();
                  limpiarControles();
@@ -377,7 +382,14 @@ public class MenuFacturasController implements Initializable {
                  imagReporte.setImage(new Image("/org/fredyhernandez/images/ReportesGeneral.png"));
                  tipoDeOperaciones = operaciones.NINGUNO;
                  break;
+                 
          }
+     }
+     
+     public void imprimirReporte(){
+         Map parametros = new HashMap();
+         parametros.put("codigoDetalleFactura", null);
+         GenerarReportes.mostrarReportes("ReporteFacturas.jasper", "Reporte de las facturas", parametros);
      }
      
      public void desactivarControles(){

@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteClientes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b297b3e5-355f-43db-837c-5f6e7a1e4c2a">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="788"/>
+	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[call sp_ListarClientes]]>
 	</queryString>
@@ -30,8 +30,8 @@
 	<background>
 		<band height="802" splitType="Stretch">
 			<image scaleImage="FillFrame">
-				<reportElement x="0" y="0" width="555" height="802" uuid="db47b585-9d11-47c0-95fe-dec18a375f73"/>
-				<imageExpression><![CDATA["C:\\Users\\Informatica\\Desktop\\Repositorio_IN5BV\\2023176_IN5BV\\src\\org\\fredyhernandez\\images\\ReporteClientes.png"]]></imageExpression>
+				<reportElement x="0" y="0" width="555" height="802" uuid="6a954e9e-ad74-4b37-8dd3-6bf9c6de1aa6"/>
+				<imageExpression><![CDATA["C:\\Users\\sandr\\OneDrive\\Escritorio\\Repositorio\\2023176_IN5BV\\src\\org\\fredyhernandez\\images\\ReporteClientes.png"]]></imageExpression>
 			</image>
 		</band>
 	</background>
@@ -51,28 +51,28 @@
 				<text><![CDATA[Nit Cliente]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="114" y="17" width="89" height="20" uuid="24130fff-b047-47df-9b79-951c1e554cb2"/>
+				<reportElement x="100" y="17" width="89" height="20" uuid="24130fff-b047-47df-9b79-951c1e554cb2"/>
 				<textElement>
 					<font size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[NombreCliente]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="215" y="17" width="89" height="20" uuid="b8e70818-4baa-4cc5-9a4f-95121dcf1d4a"/>
+				<reportElement x="189" y="17" width="89" height="20" uuid="b8e70818-4baa-4cc5-9a4f-95121dcf1d4a"/>
 				<textElement>
 					<font size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Apellido Cliente]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="314" y="17" width="101" height="20" uuid="f5679efc-d27f-4bc2-bbf1-7b1de7dc8fd2"/>
+				<reportElement x="278" y="17" width="101" height="20" uuid="f5679efc-d27f-4bc2-bbf1-7b1de7dc8fd2"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Telefono Cliente]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="426" y="17" width="100" height="20" uuid="caa7afee-23a3-4859-95c4-2c7d381dd26a"/>
+				<reportElement x="379" y="17" width="147" height="20" uuid="caa7afee-23a3-4859-95c4-2c7d381dd26a"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
@@ -90,19 +90,19 @@
 				<textFieldExpression><![CDATA[$F{nitCliente}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="114" y="20" width="89" height="20" uuid="4ed363e3-a32b-4ec5-a25d-9b563891fa03"/>
+				<reportElement x="100" y="20" width="89" height="20" uuid="4ed363e3-a32b-4ec5-a25d-9b563891fa03"/>
 				<textFieldExpression><![CDATA[$F{nombreCliente}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="215" y="20" width="89" height="20" uuid="a8e41c1d-2e6f-4dc9-93bd-1d48eb4d55a0"/>
+				<reportElement x="189" y="20" width="89" height="20" uuid="a8e41c1d-2e6f-4dc9-93bd-1d48eb4d55a0"/>
 				<textFieldExpression><![CDATA[$F{apellidoCliente}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="314" y="20" width="101" height="20" uuid="c3e04e09-73f8-44e1-8d49-83709d567eb1"/>
+				<reportElement x="278" y="20" width="101" height="20" uuid="c3e04e09-73f8-44e1-8d49-83709d567eb1"/>
 				<textFieldExpression><![CDATA[$F{telefonoCliente}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="426" y="20" width="100" height="20" uuid="aa04d789-32aa-4212-b47f-1cd08d62770a"/>
+				<reportElement x="379" y="20" width="147" height="20" uuid="aa04d789-32aa-4212-b47f-1cd08d62770a"/>
 				<textFieldExpression><![CDATA[$F{correoCliente}]]></textFieldExpression>
 			</textField>
 			<line>

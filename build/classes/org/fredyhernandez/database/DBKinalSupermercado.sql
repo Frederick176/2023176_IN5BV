@@ -1205,4 +1205,90 @@ Delimiter ;;
 call sp_EditarEmailProveedor(90, 'ulises22@gmail.com', 'Oficial', 10);
 
 
+
+-- ------------------- Joins --------------------
+select * from DetalleFactura
+	join Facturas on DetalleFactura.numeroFactura = Facturas.numeroFactura
+	join Clientes on Facturas.codigoCliente = Clientes.codigoCliente
+    join Productos on DetalleFactura.codigoProducto = Productos.codigoProducto
+    
+    where Facturas.numeroFactura = 30;
+
+
+
+-- ------------------- triggers --------------------
+-- -------------------Triger_After_ Insert de DetalleFactura con nombre PrecioProductos -------------------
+delimiter $$
+create trigger tr_PrecioProductos_After_Insert
+after insert on DetalleCompra
+for each row 
+begin
+	declare total decimal(10,2);
+    declare cantidad int;
+    set total = new.costoUnitario * new.cantidad;
+ 
+	update Productos
+	set precioUnitario = total * 0.40,
+		precioDocena  = total * 0.35 * 12,
+        precioMayor = total * 0.25
+    where Productos.codigoProducto = new.codigoProducto;
+	update Productos
+        set Productos.existencia = Productos.existencia - new.cantidad
+	where Productos.codigoProducto = new.codigoProducto;
+ 
+end $$
+
+delimiter ;
+
+
+-- ------------------- Triger_After_ Insert de DetalleFactura con nombre TotalDocumento -------------------
+delimiter $$
+create trigger tr_TotalDocumento_After_Insert
+after insert on DetalleCompra
+for each row
+begin
+    declare total decimal(10,2);
+    select sum(costoUnitario * cantidad) into total from DetalleCompra 
+    where numeroDocumento = NEW.numeroDocumento;
+    update Compras 
+		set totalDocumento = total 
+	where numeroDocumento = NEW.numeroDocumento;
+end $$
+delimiter ;
+
+
+-- ------------------- Triger_After_ Insert de DetalleFactura con nombre PrecioUnitario -------------------
+delimiter $$
+create trigger tr_PrecioUnitario_After_Upd
+after insert on DetalleCompra
+for each row
+begin
+ 
+	declare precio decimal(10,2);
+    set precio = (select precioUnitario from Productos where codigoProducto = new.codigoProducto);
+    update DetalleFactura
+    set DetalleFactura.precioUnitario = precioP
+    where DetalleFactura.codigoProducto = NEW.codigoProducto;
+end $$
+delimiter ;
+
+
+-- ------------------- Triger_After_ Update de DetalleFactura con nombre TotalFactura -------------------
+delimiter $$
+create trigger tr_TotalFactura_Aftr_U
+after update on DetalleFactura
+for each row
+begin
+	declare totalFactura decimal(10,2);
+    select sum(precioUnitario * cantidad) into totalFactura from DetalleFactura
+    where numeroFactura = new.numeroFactura;
+    update Factura
+		set Factura.totalFactura = totalFactura
+	where Factura.numeroFactura = new.numeroFactura;
+end $$
+delimiter ;
+
+
+
+
 set global time_zone = '-6:00'	
